@@ -35,6 +35,7 @@ rtm._.addToken = function (token) {
 
     wss.on('connection', (client) => {
       client.on('message', recordMessage)
+      sendToClient({type: 'hello'}, client)
 
       logger.info(`client ${token} connected to RTM API`)
     })
